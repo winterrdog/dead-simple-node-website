@@ -1,0 +1,17 @@
+body {
+    background-color: bisque;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.foot-cls {
+    background-color: cadetblue;
+    padding-left: 50%;
+    padding-top: .5%;
+    padding-bottom: .5%;
+    margin-top: auto;
+    font-weight: 700;
+}

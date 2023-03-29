@@ -1,0 +1,13 @@
+{
+    "name": "simple-node-website",
+    "version": "1.0.0",
+    "description": "an simple nodeJS assignment from TOP",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index",
+        "dev": "nodemon -w ./public -q index"
+    },
+    "author": "winterrdog",
+    "license": "MIT"
+}
