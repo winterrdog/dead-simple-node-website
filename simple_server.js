@@ -23,7 +23,6 @@ class SimpleServer {
                 break;
             case "/about-me":
                 isRedirect = true;
-                res.end();
                 break;
             case "/contact-me":
                 route += "/contact-me.html";
@@ -70,6 +69,7 @@ class SimpleServer {
                 // send back file since reading was successful
                 if (isRedirect) {
                     res.writeHead(301, { Location: "/about" });
+                    res.end();
                 } else {
                     res.writeHead(200, {
                         "Content-Type": this.contType,
