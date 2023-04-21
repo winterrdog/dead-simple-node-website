@@ -8,27 +8,29 @@ app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // static files -- better to use a reverse proxy like nginx
-app.use(express.static('public'))
+app.use(express.static("public"));
 
-// /
-app.get("/", (req, res) => {
+app.get("/", handleIndexPg); // /
+app.get("/about", handleAboutPg); // /about
+app.get("/contact-me", handleContactMePg); // /contact-me
+app.use(handle404Pg); // 404 page
+
+// route handler functions
+function handleIndexPg(req, res) {
     res.render("index", { title: "Home" });
-});
+}
 
-// /about
-app.get("/about", (req, res) => {
+function handleAboutPg(req, res) {
     res.render("about", { title: "About me" });
-});
+}
 
-// /contact-me
-app.get("/contact-me", (req, res) => {
+function handleContactMePg(req, res) {
     res.render("contact-me", { title: "Need me!" });
-});
+}
 
-// 404 page
-app.use((req, res, next) => {
+function handle404Pg(req, res, next) {
     res.status(404).render("404", { title: "Page absent" });
-});
+}
 
 const PORT = 9090;
 app.listen(PORT, function () {
